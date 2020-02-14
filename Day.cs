@@ -13,7 +13,11 @@ namespace LemonadeStand_3DayStarter
         public List<Customer> customers;
 
         //constructor
-
+        public Day()
+        {
+            weather = new Weather();
+            customers = new List<Customer>();
+        }
 
         //member methods
 

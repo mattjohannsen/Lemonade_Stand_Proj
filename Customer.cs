@@ -13,7 +13,10 @@ namespace LemonadeStand_3DayStarter
         public string name;
 
         //constructor
-
+        public Customer()
+        {
+                
+        }
 
         //member methods
 
