@@ -1,0 +1,52 @@
+Game.cs
+private Player player
+private List<Day> days
+private int currentDay
+
+Player.cs
+public string name
+public Inventory inventory
+public Wallet wallet
+Recipe recipe
+Pitcher pitcher
+
+Day.cs
+public Weather weather
+public List<Customer> customers
+
+Store.cs
+private double pricePerLemon
+private double pricePerSugarCube
+private double pricePerIceCube
+private double pricePerCup
+
+Pitcher.cs
+public int cupsLeftInPitcher
+
+Wallet.cs
+private double money
+public double Money
+
+Recipe.cs
+public int amountOfLemons
+public int amountOfSugarCubes
+public int amountOfIceCubes
+public double pricePerCup
+
+Inventory.cs
+public List<Lemon> lemons
+public List<IceCube> iceCubes
+public List<Cup> cups
+public List<SugarCube> sugarCubes
+
+Weather.cs
+public string condition
+public string temperature
+private List<string> weatherConditions
+
+Customer.cs
+private List<string> names
+public string name
+
+
+

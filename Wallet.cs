@@ -8,6 +8,7 @@ namespace LemonadeStand_3DayStarter
 {
     class Wallet
     {
+        //member variables
         private double money;
 
         // property - TBD
