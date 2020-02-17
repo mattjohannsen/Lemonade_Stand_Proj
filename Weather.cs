@@ -35,23 +35,23 @@ namespace LemonadeStand_3DayStarter
             {
                 case 0:
                     condition = weatherConditions[0];
-                    //Console.WriteLine($"The weather will be: {condition}.");
+                    Console.WriteLine($"The weather will be: {condition}.");
                     break;
                 case 1:
                     condition = weatherConditions[1];
-                    //Console.WriteLine($"The weather will be: {condition}.");
+                    Console.WriteLine($"The weather will be: {condition}.");
                     break;
                 case 2:
                     condition = weatherConditions[2];
-                    //Console.WriteLine($"The weather will be: {condition}.");
+                    Console.WriteLine($"The weather will be: {condition}.");
                     break;
                 case 3:
                     condition = weatherConditions[3];
-                    //Console.WriteLine($"The weather will be: {condition}.");
+                    Console.WriteLine($"The weather will be: {condition}.");
                     break;
                 case 4:
                     condition = weatherConditions[4];
-                    //Console.WriteLine($"The weather will be: {condition}.");
+                    Console.WriteLine($"The weather will be: {condition}.");
                     break;
                 default:
                     Console.WriteLine("Not a valid weather condition");
@@ -65,6 +65,7 @@ namespace LemonadeStand_3DayStarter
             Random rnd = new Random();
             result = rnd.Next(50, 100);
             temperature = Convert.ToString(result);
+            Console.WriteLine($"The temperature will be {temperature}");
         }
 
 
