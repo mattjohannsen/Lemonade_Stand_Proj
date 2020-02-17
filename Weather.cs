@@ -20,7 +20,7 @@ namespace LemonadeStand_3DayStarter
         {
             weatherConditions = new List<string>() { "sunny", "hazy", "overcast", "cloudy", "rainy" };
             GenerateWeatherCondition();
-            //GenerateRandomTemperature();
+            GenerateRandomTemperature();
         }
         
 
@@ -59,13 +59,13 @@ namespace LemonadeStand_3DayStarter
             }
 
         }
-        //public void GenerateRandomTemperature()
-        //{
-        //    int result;
-        //    Random rnd = new Random();
-        //    result = rnd.Next(50, 100);
-        //    temperature = Convert.ToString(result);
-        //}
+        public void GenerateRandomTemperature()
+        {
+            int result;
+            Random rnd = new Random();
+            result = rnd.Next(50, 100);
+            temperature = Convert.ToString(result);
+        }
 
 
     }
