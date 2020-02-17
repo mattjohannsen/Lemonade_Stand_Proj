@@ -17,6 +17,7 @@ namespace LemonadeStand_3DayStarter
         {
             weather = new Weather();
             customers = new List<Customer>();
+            //This is where I want to call the method to generate the correct number of customers
         }
 
         //member methods

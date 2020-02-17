@@ -18,10 +18,10 @@ namespace LemonadeStand_3DayStarter
         {
             ShowRules();
             int daysToCreate = int.Parse(SetNumberOfDays());
-            Console.WriteLine(daysToCreate);
+            Console.WriteLine($"Now we are going to create {daysToCreate} days...");
             //for (int i = 0; i < daysToCreate; i++)
             //{
-            //    Day[i] = new Day(Weather);
+            //    public Day[i] = new Day();
             //}
 
         }
