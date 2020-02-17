@@ -20,8 +20,15 @@ namespace LemonadeStand_3DayStarter
         {
             inventory = new Inventory();
             wallet = new Wallet();
+            GetPlayerName();
         }
 
         // member methods (CAN DO)
+        public void GetPlayerName()
+        {
+            Console.WriteLine("What is the player's name?");
+            name = Console.ReadLine();
+            //name = Console.Readline();
+        }
     }
 }

@@ -24,11 +24,17 @@ namespace LemonadeStand_3DayStarter
             ShowRules();
             int daysToCreate = int.Parse(SetNumberOfDays());
             CreateTheDays(daysToCreate);
+            Player thePlayer = new Player();
+
+
+
 
         }
 
 
         //member methods
+
+        
         private string SetNumberOfDays()
         {
             Console.WriteLine("Are you playing for 7, 14 or 30 days?");

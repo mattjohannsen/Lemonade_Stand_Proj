@@ -28,6 +28,5 @@ namespace LemonadeStand_3DayStarter
 
         //member methods
 
-
-    }
+}
 }
