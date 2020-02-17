@@ -20,52 +20,52 @@ namespace LemonadeStand_3DayStarter
             weather = new Weather(rnd);
             customers = new List<Customer>();
             //This is where I want to call the method to generate the correct number of customers
-            GenerateCustomersForDay();
+            GenerateCustomersForDay(GetNumberOfCustomers());
         }
 
         //member methods
-        public void GenerateCustomersForDay()
+        public void GenerateCustomersForDay(int totalCustomersToMake)
+        {
+            for (int i = 0; i < totalCustomersToMake; i++)
+            {
+                Customer newCustomer = new Customer();
+            }
+        }
+        
+        public int GetNumberOfCustomers()
         {
             Console.WriteLine($"Temperature: {weather.temperature} Condition: {weather.condition}");
             int result;
-            int customerMultiplier;
             int totalCustomersToMake;
             switch (weather.condition)
             {
                 case "sunny":
                     result = rnd.Next(80, 100);
-                    customerMultiplier = 90;
-                    totalCustomersToMake = ((result*customerMultiplier)/ 100);
-                    Console.WriteLine($"Customers:{totalCustomersToMake}");
-                    break;
+                    totalCustomersToMake = ((result*int.Parse(weather.temperature))/ 100);
+                    return totalCustomersToMake;
                 case "hazy":
                     result = rnd.Next(70, 90);
-                    customerMultiplier = 98;
-                    totalCustomersToMake = ((result * customerMultiplier) / 100);
-                    Console.WriteLine($"Customers:{totalCustomersToMake}");
-                    break;
+                    totalCustomersToMake = ((result * int.Parse(weather.temperature)) / 100);
+                    return totalCustomersToMake;
                 case "overcast":
                     result = rnd.Next(60, 80);
-                    customerMultiplier = 80;
-                    totalCustomersToMake = ((result * customerMultiplier) / 100);
-                    Console.WriteLine($"Customers:{totalCustomersToMake}");
-                    break;
+                    totalCustomersToMake = ((result * int.Parse(weather.temperature)) / 100);
+                    return totalCustomersToMake;
                 case "cloudy":
                     result = rnd.Next(50, 70);
-                    customerMultiplier = 70;
-                    totalCustomersToMake = ((result * customerMultiplier) / 100);
-                    Console.WriteLine($"Customers:{totalCustomersToMake}");
-                    break;
+                    totalCustomersToMake = ((result * int.Parse(weather.temperature)) / 100);
+                    return totalCustomersToMake;
                 case "rainy":
                     result = rnd.Next(50, 80);
-                    customerMultiplier = 60;
-                    totalCustomersToMake = ((result * customerMultiplier) / 100);
-                    Console.WriteLine($"Customers:{totalCustomersToMake}");
-                    break;
+                    totalCustomersToMake = ((result*int.Parse(weather.temperature))/ 100);
+                    return totalCustomersToMake;
                 default:
                     Console.WriteLine("Not a valid weather condition");
-                    break;
+                    //I need help here to make a proper default case
+                    totalCustomersToMake = 1;
+                    return totalCustomersToMake;
             }
+            //Console.WriteLine($"{totalCustomersToMake}");
         }
 
 
