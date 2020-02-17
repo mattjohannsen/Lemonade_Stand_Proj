@@ -11,6 +11,7 @@ namespace LemonadeStand_3DayStarter
         //member variables
         private List<string> names;
         public string name;
+        Random rnd;
 
         //constructor
         public Customer()
