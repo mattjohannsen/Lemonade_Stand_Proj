@@ -24,8 +24,10 @@ namespace LemonadeStand_3DayStarter
             ShowRules();
             int daysToCreate = int.Parse(SetNumberOfDays());
             CreateTheDays(daysToCreate);
-            Player thePlayer = new Player();
-
+            player = new Player();
+            ShowWallet();
+            ShowInventory();
+            ShowRecipe();
 
 
 
@@ -33,8 +35,31 @@ namespace LemonadeStand_3DayStarter
 
 
         //member methods
-
+        public void ShowRecipe()
+        {
+            Console.WriteLine();
+            Console.WriteLine("   Your Current Recipe");
+            Console.WriteLine($"     Amount of Lemons: {player.recipe.amountOfLemons}");
+            Console.WriteLine($"Amount of Sugar Cubes: {player.recipe.amountOfSugarCubes}");
+            Console.WriteLine($"Amount of Ice per Cup: {player.recipe.amountOfIceCubes}");
+            Console.WriteLine($"        Price per Cup: {player.recipe.pricePerCup}");
+        }
         
+        public void ShowInventory()
+        {
+            Console.WriteLine();
+            Console.WriteLine($"     {player.name}'s Inventory");
+            Console.WriteLine($"      You have: {player.inventory.lemons.Count} lemons");
+            Console.WriteLine($"      You have: {player.inventory.sugarCubes.Count} sugar cubes");
+            Console.WriteLine($"      You have: {player.inventory.iceCubes.Count} ice cubes");
+            Console.WriteLine($"      You have: {player.inventory.cups.Count} cups");
+        }
+        public void ShowWallet()
+        {
+            Console.WriteLine($"{player.name} has: ${player.wallet.Money}");
+        }
+        
+
         private string SetNumberOfDays()
         {
             Console.WriteLine("Are you playing for 7, 14 or 30 days?");
