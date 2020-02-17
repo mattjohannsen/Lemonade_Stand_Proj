@@ -11,11 +11,13 @@ namespace LemonadeStand_3DayStarter
         //member variables
         public Weather weather;
         public List<Customer> customers;
+        Random rnd;
 
         //constructor
-        public Day()
+        public Day(Random rnd)
         {
-            weather = new Weather();
+            this.rnd = rnd;
+            weather = new Weather(rnd);
             customers = new List<Customer>();
             //This is where I want to call the method to generate the correct number of customers
         }

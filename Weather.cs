@@ -12,12 +12,14 @@ namespace LemonadeStand_3DayStarter
         public string condition;
         public string temperature;
         private List<string> weatherConditions;
+        Random rnd;
 
 
 
         //constructor
-        public Weather()
+        public Weather(Random rnd)
         {
+            this.rnd = rnd;
             weatherConditions = new List<string>() { "sunny", "hazy", "overcast", "cloudy", "rainy" };
             GenerateWeatherCondition();
             GenerateRandomTemperature();
@@ -29,7 +31,6 @@ namespace LemonadeStand_3DayStarter
         public void GenerateWeatherCondition()
         {
             int result;
-            Random rnd = new Random();
             result = rnd.Next(0, weatherConditions.Count);
             switch (result)
             {
@@ -62,7 +63,6 @@ namespace LemonadeStand_3DayStarter
         public void GenerateRandomTemperature()
         {
             int result;
-            Random rnd = new Random();
             result = rnd.Next(50, 100);
             temperature = Convert.ToString(result);
             Console.WriteLine($"The temperature will be {temperature}");

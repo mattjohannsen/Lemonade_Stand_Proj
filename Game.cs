@@ -12,24 +12,20 @@ namespace LemonadeStand_3DayStarter
         private Player player;
         private List<Day> days;
         private int currentDay;
+        Random rnd;
 
         //constructor
+        public Game()
+        {
+            rnd = new Random();
+        }
         public void RunGame()
         {
             ShowRules();
             int daysToCreate = int.Parse(SetNumberOfDays());
-            Console.WriteLine($"Now we are going to create {daysToCreate} days...");
-            //Here is where we create the Days.The number of Days we create is based on the number based to us above.
-            for (int i = 0; i < daysToCreate; i++)
-            {
-              Day newDay = new Day();
-            }
-            //for (int i = 0; i < daysToCreate; i++)
-            //{
-            //    Console.WriteLine(newDay[i]);
-            //}
+            CreateTheDays(daysToCreate);
 
-}
+        }
 
 
         //member methods
@@ -50,9 +46,14 @@ namespace LemonadeStand_3DayStarter
 
         }
 
-        private void CreateTheDays()
+        private void CreateTheDays(int daysToCreate)
         {
-
+            Console.WriteLine($"Now we are going to create {daysToCreate} days...");
+            //Here is where we create the Days.The number of Days we create is based on the number based to us above.
+            for (int i = 0; i < daysToCreate; i++)
+            {
+                Day newDay = new Day(rnd);
+            }
         }
         private void ShowRules()
         {
