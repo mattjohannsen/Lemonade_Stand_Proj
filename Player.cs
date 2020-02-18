@@ -27,7 +27,8 @@ namespace LemonadeStand_3DayStarter
         // member methods (CAN DO)
         public void GetPlayerName()
         {
-            Console.WriteLine("What is the player's name?");
+            Console.WriteLine();
+            Console.Write("       What is the player's name?" + "\n       ");
             name = Console.ReadLine();
             //name = Console.Readline();
         }

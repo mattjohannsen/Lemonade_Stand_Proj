@@ -25,6 +25,8 @@ namespace LemonadeStand_3DayStarter
             int daysToCreate = int.Parse(SetNumberOfDays());
             CreateTheDays(daysToCreate);
             player = new Player();
+
+            ShowForecast();
             ShowWallet();
             ShowInventory();
             ShowRecipe();
@@ -38,13 +40,20 @@ namespace LemonadeStand_3DayStarter
 
 
         //member methods
+        private void ShowForecast()
+        {
+            Console.WriteLine();
+            Console.WriteLine($"       Day: {currentDay} | 98 degrees and condition");
+        }
+
+
         private string SelectGameOptions()
         {
             Console.WriteLine();
-            Console.WriteLine("Select an option:");
-            Console.WriteLine("(1) Buy Inventory");
-            Console.WriteLine("(2) Edit Recipe");
-            Console.WriteLine("(3) Sell Lemonade!");
+            Console.WriteLine("       Select an option:");
+            Console.WriteLine("       (1) Buy Inventory");
+            Console.WriteLine("       (2) Edit Recipe");
+            Console.WriteLine("       (3) Sell Lemonade!");
             string menuOption = Console.ReadLine();
             switch (menuOption)
             {
@@ -62,26 +71,26 @@ namespace LemonadeStand_3DayStarter
         public void ShowRecipe()
         {
             Console.WriteLine();
-            Console.WriteLine("     Your Current Recipe");
-            Console.WriteLine($"       # of Lemons: {player.recipe.amountOfLemons}");
-            Console.WriteLine($"  # of Sugar Cubes: {player.recipe.amountOfSugarCubes}");
-            Console.WriteLine($"  # of Ice per Cup: {player.recipe.amountOfIceCubes}");
-            Console.WriteLine($"     Price per Cup: {player.recipe.pricePerCup}");
+            Console.WriteLine("       Your Current Recipe");
+            Console.WriteLine($"            # of Lemons: {player.recipe.amountOfLemons}");
+            Console.WriteLine($"       # of Sugar Cubes: {player.recipe.amountOfSugarCubes}");
+            Console.WriteLine($"       # of Ice per Cup: {player.recipe.amountOfIceCubes}");
+            Console.WriteLine($"          Price per Cup: {player.recipe.pricePerCup}");
         }
         
         public void ShowInventory()
         {
             Console.WriteLine();
-            Console.WriteLine($"      {player.name}'s Inventory");
-            Console.WriteLine($"      You have: {player.inventory.lemons.Count} lemons");
-            Console.WriteLine($"      You have: {player.inventory.sugarCubes.Count} sugar cubes");
-            Console.WriteLine($"      You have: {player.inventory.iceCubes.Count} ice cubes");
-            Console.WriteLine($"      You have: {player.inventory.cups.Count} cups");
+            Console.WriteLine($"       {player.name}'s Inventory");
+            Console.WriteLine($"       You have: {player.inventory.lemons.Count} lemons");
+            Console.WriteLine($"       You have: {player.inventory.sugarCubes.Count} sugar cubes");
+            Console.WriteLine($"       You have: {player.inventory.iceCubes.Count} ice cubes");
+            Console.WriteLine($"       You have: {player.inventory.cups.Count} cups");
         }
         public void ShowWallet()
         {
             Console.WriteLine();
-            Console.WriteLine($"      {player.name} has: ${player.wallet.Money}");
+            Console.WriteLine($"       {player.name} has: ${player.wallet.Money}");
         }
         
 
