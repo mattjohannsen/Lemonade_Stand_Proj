@@ -53,7 +53,7 @@ namespace LemonadeStand_3DayStarter
                     }
                 else
                 {
-                Console.WriteLine("That is not a valid choice");
+                Console.WriteLine("That is not a valid choice!");
                 BuyInventory(player);
                 }
         }

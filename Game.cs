@@ -14,6 +14,8 @@ namespace LemonadeStand_3DayStarter
         private int currentDay;
         private Store store;
         Random rnd;
+        bool goSellLemonade = false;
+        bool continueGame = true;
 
         //constructor
         public Game()
@@ -30,12 +32,16 @@ namespace LemonadeStand_3DayStarter
             CreateTheDays(daysToCreate);
             player = new Player();
             //This is where the loop will go adding 1 to previous day
-            ShowForecast();
-            ShowWallet();
-            ShowInventory();
-            ShowRecipe();
-            GameMenu(SelectGameOptions());
-
+            do
+            {
+                while (goSellLemonade == false)
+                {
+                    ShowPlayerStandStatus();
+                }
+                Console.WriteLine($"{continueGame}");
+                //SellLemonade();
+            }
+            while (continueGame == true);
             //My next step is buying from my store, and editing my recipe.
             //This is where the loop will end adding 1 to previous day and ending when game is over.
 
@@ -45,6 +51,18 @@ namespace LemonadeStand_3DayStarter
 
 
         //member methods
+        private void SellLemonade()
+        {
+            Console.WriteLine("       You are selling lemondade!");
+        }
+        private void ShowPlayerStandStatus()
+        {
+            ShowForecast();
+            ShowWallet();
+            ShowInventory();
+            ShowRecipe();
+            GameMenu(SelectGameOptions());
+        }
         private void GameMenu(string menuOption)
         {
             if (menuOption == "1")
@@ -65,7 +83,9 @@ namespace LemonadeStand_3DayStarter
             {
                 case "1":
                 case "2":
+                    return menuOption;
                 case "3":
+                    goSellLemonade = true;
                     return menuOption;
                 default:
                     Console.WriteLine("That is not a valid selection. Please try again.");
