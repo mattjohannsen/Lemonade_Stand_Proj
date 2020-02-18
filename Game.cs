@@ -28,6 +28,8 @@ namespace LemonadeStand_3DayStarter
             ShowWallet();
             ShowInventory();
             ShowRecipe();
+            SelectGameOptions();
+            //My next step is buying from my store, and editing my recipe.
 
 
 
@@ -35,20 +37,26 @@ namespace LemonadeStand_3DayStarter
 
 
         //member methods
+        public void SelectGameOptions()
+        {
+
+        }
+
+
         public void ShowRecipe()
         {
             Console.WriteLine();
-            Console.WriteLine("   Your Current Recipe");
-            Console.WriteLine($"     Amount of Lemons: {player.recipe.amountOfLemons}");
-            Console.WriteLine($"Amount of Sugar Cubes: {player.recipe.amountOfSugarCubes}");
-            Console.WriteLine($"Amount of Ice per Cup: {player.recipe.amountOfIceCubes}");
-            Console.WriteLine($"        Price per Cup: {player.recipe.pricePerCup}");
+            Console.WriteLine("     Your Current Recipe");
+            Console.WriteLine($"       # of Lemons: {player.recipe.amountOfLemons}");
+            Console.WriteLine($"  # of Sugar Cubes: {player.recipe.amountOfSugarCubes}");
+            Console.WriteLine($"  # of Ice per Cup: {player.recipe.amountOfIceCubes}");
+            Console.WriteLine($"     Price per Cup: {player.recipe.pricePerCup}");
         }
         
         public void ShowInventory()
         {
             Console.WriteLine();
-            Console.WriteLine($"     {player.name}'s Inventory");
+            Console.WriteLine($"      {player.name}'s Inventory");
             Console.WriteLine($"      You have: {player.inventory.lemons.Count} lemons");
             Console.WriteLine($"      You have: {player.inventory.sugarCubes.Count} sugar cubes");
             Console.WriteLine($"      You have: {player.inventory.iceCubes.Count} ice cubes");
@@ -56,7 +64,8 @@ namespace LemonadeStand_3DayStarter
         }
         public void ShowWallet()
         {
-            Console.WriteLine($"{player.name} has: ${player.wallet.Money}");
+            Console.WriteLine();
+            Console.WriteLine($"      {player.name} has: ${player.wallet.Money}");
         }
         
 
