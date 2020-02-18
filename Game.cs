@@ -12,6 +12,7 @@ namespace LemonadeStand_3DayStarter
         private Player player;
         private List<Day> days;
         private int currentDay;
+        private Store store;
         Random rnd;
 
         //constructor
@@ -19,6 +20,8 @@ namespace LemonadeStand_3DayStarter
         {
             rnd = new Random();
             days = new List<Day>();
+            store = new Store();
+
         }
         public void RunGame()
         {
@@ -26,14 +29,15 @@ namespace LemonadeStand_3DayStarter
             int daysToCreate = int.Parse(SetNumberOfDays());
             CreateTheDays(daysToCreate);
             player = new Player();
-
+            //This is where the loop will go adding 1 to previous day
             ShowForecast();
             ShowWallet();
             ShowInventory();
             ShowRecipe();
-            SelectGameOptions();
+            GameMenu(SelectGameOptions());
 
             //My next step is buying from my store, and editing my recipe.
+            //This is where the loop will end adding 1 to previous day and ending when game is over.
 
 
 
@@ -41,13 +45,14 @@ namespace LemonadeStand_3DayStarter
 
 
         //member methods
-        private void ShowForecast()
+        private void GameMenu(string menuOption)
         {
-            Console.WriteLine();
-            Console.WriteLine($"       Day: {(currentDay + 1)} | {days[currentDay].weather.temperature} degrees and {days[currentDay].weather.condition}");
+            if (menuOption == "1")
+            {
+                //Console.WriteLine("Buy inventory");
+                store.BuyInventory(player);
+            }
         }
-
-
         private string SelectGameOptions()
         {
             Console.WriteLine();
@@ -68,7 +73,11 @@ namespace LemonadeStand_3DayStarter
             }
 
         }
-
+        private void ShowForecast()
+        {
+            Console.WriteLine();
+            Console.WriteLine($"       Day: {(currentDay + 1)} | {days[currentDay].weather.temperature} degrees and {days[currentDay].weather.condition}");
+        }
         public void ShowRecipe()
         {
             Console.WriteLine();

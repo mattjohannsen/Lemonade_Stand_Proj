@@ -24,6 +24,14 @@ namespace LemonadeStand_3DayStarter
         }
 
         // member methods (CAN DO)
+        public void BuyInventory(Player player)
+        {
+            Console.WriteLine();
+            Console.WriteLine($"     Do you want to buy:");
+            Console.WriteLine($"     Do you want to buy:");
+            Console.WriteLine($"     Do you want to buy:");
+            Console.WriteLine($"     Do you want to buy:");
+        }
         public void SellLemons(Player player)
         {
             int lemonsToPurchase = UserInterface.GetNumberOfItems("lemons");
