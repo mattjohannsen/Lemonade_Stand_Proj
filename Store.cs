@@ -67,6 +67,10 @@ namespace LemonadeStand_3DayStarter
                 PerformTransaction(player.wallet, transactionAmount);
                 player.inventory.AddLemonsToInventory(lemonsToPurchase);
             }
+            else
+            {
+                Console.WriteLine("\n       You do not have enough money for that transaction");
+            }
         }
 
         public void SellSugarCubes(Player player)
@@ -77,6 +81,10 @@ namespace LemonadeStand_3DayStarter
             {
                 PerformTransaction(player.wallet, transactionAmount);
                 player.inventory.AddSugarCubesToInventory(sugarToPurchase);
+            }
+            else
+            {
+                Console.WriteLine("\n       You do not have enough money for that transaction");
             }
         }
 
@@ -89,6 +97,10 @@ namespace LemonadeStand_3DayStarter
                 PerformTransaction(player.wallet, transactionAmount);
                 player.inventory.AddIceCubesToInventory(iceCubesToPurchase);
             }
+            else
+            {
+                Console.WriteLine("\n       You do not have enough money for that transaction");
+            }
         }
 
         public void SellCups(Player player)
@@ -99,6 +111,10 @@ namespace LemonadeStand_3DayStarter
             {
                 PerformTransaction(player.wallet, transactionAmount);
                 player.inventory.AddCupsToInventory(cupsToPurchase);
+            }
+            else
+            {
+                Console.WriteLine("\n       You do not have enough money for that transaction");
             }
         }
 

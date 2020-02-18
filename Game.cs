@@ -38,8 +38,7 @@ namespace LemonadeStand_3DayStarter
                 {
                     ShowPlayerStandStatus();
                 }
-                Console.WriteLine($"{continueGame}");
-                //SellLemonade();
+                SellLemonade();
             }
             while (continueGame == true);
             //My next step is buying from my store, and editing my recipe.
@@ -53,7 +52,20 @@ namespace LemonadeStand_3DayStarter
         //member methods
         private void SellLemonade()
         {
-            Console.WriteLine("       You are selling lemondade!");
+            ShowForecast();
+            ShowDailyCustomers();
+
+            Console.ReadLine();
+
+        }
+        private void ShowDailyCustomers()
+        {
+            Console.WriteLine($"       # of customers: {days[0].customers.Count}");
+            Console.WriteLine($"       Recipe likeability: {player.recipe.recipeLikeability}");
+            //for (int i = 0; i < length; i++)
+            //{
+
+            //}
         }
         private void ShowPlayerStandStatus()
         {
@@ -106,10 +118,10 @@ namespace LemonadeStand_3DayStarter
         {
             Console.WriteLine();
             Console.WriteLine("       Your Current Recipe");
+            Console.WriteLine($"          Price per Cup: {player.recipe.pricePerCup}");
             Console.WriteLine($"            # of Lemons: {player.recipe.amountOfLemons}");
             Console.WriteLine($"       # of Sugar Cubes: {player.recipe.amountOfSugarCubes}");
             Console.WriteLine($"       # of Ice per Cup: {player.recipe.amountOfIceCubes}");
-            Console.WriteLine($"          Price per Cup: {player.recipe.pricePerCup}");
         }
         
         public void ShowInventory()
