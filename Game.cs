@@ -38,7 +38,7 @@ namespace LemonadeStand_3DayStarter
                 {
                     ShowPlayerStandStatus();
                 }
-                SellLemonade();
+                SellLemonade(rnd);
             }
             while (continueGame == true);
             //My next step is buying from my store, and editing my recipe.
@@ -50,22 +50,20 @@ namespace LemonadeStand_3DayStarter
 
 
         //member methods
-        private void SellLemonade()
+        private void SellLemonade(Random rnd)
         {
             ShowForecast();
-            ShowDailyCustomers();
-
-            Console.ReadLine();
-
-        }
-        private void ShowDailyCustomers()
-        {
+            player.CreatePitcher(player);
             Console.WriteLine($"       # of customers: {days[0].customers.Count}");
             Console.WriteLine($"       Recipe likeability: {player.recipe.recipeLikeability}");
-            //for (int i = 0; i < length; i++)
-            //{
 
+            //This is where the code loops through and decides if the customer buys or not.
+            //for (int i = 0; i < days[0].customers.Count; i++)
+            //{
+            //    Console.Write($"{days[i].customers}");
             //}
+            Console.ReadLine();
+
         }
         private void ShowPlayerStandStatus()
         {

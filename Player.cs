@@ -25,6 +25,49 @@ namespace LemonadeStand_3DayStarter
         }
 
         // member methods (CAN DO)
+        public void CreatePitcher(Player player)
+        {
+            Console.WriteLine("\n        We are making a pitcher");
+            int ourLemons = player.inventory.lemons.Count;
+            int pitcherLemons = player.recipe.amountOfLemons;
+            int ourSugar = player.inventory.sugarCubes.Count;
+            int pitcherSugar = player.recipe.amountOfSugarCubes;
+            int ourIce = player.inventory.iceCubes.Count;
+            int pitcherIce = player.recipe.amountOfIceCubes;
+            //Console.WriteLine($"Before lemons: {player.inventory.lemons.Count}");
+            //Console.WriteLine($"Before sugar: {player.inventory.sugarCubes.Count}");
+            //Console.WriteLine($"Before ice: {player.inventory.iceCubes.Count}");
+            //Compare the requirements of the pitcher to the known quantities of inventory
+            if ((pitcherLemons <= ourLemons) && (pitcherSugar <= ourSugar) && (pitcherIce <= ourIce))
+            {
+                Pitcher newPitcher = new Pitcher();
+                //We are taking the lemons used in this Pitcher out of inventory
+                for (int i = 0; i < pitcherLemons; i++)
+                {
+                    player.inventory.lemons.RemoveAt(i);
+                }
+                //We are taking the sugar used in this Pitcher out of inventory
+                for (int i = 0; i < pitcherSugar; i++)
+                {
+                    player.inventory.sugarCubes.RemoveAt(i);
+                }
+                //We are taking the ice used in this Pitcher out of inventory
+                for (int i = 0; i < pitcherIce; i++)
+                {
+                    player.inventory.iceCubes.RemoveAt(i);
+                }
+                //Console.WriteLine($"After lemons: {player.inventory.lemons.Count}");
+                //Console.WriteLine($" After sugar: {player.inventory.sugarCubes.Count}");
+                //Console.WriteLine($"   After ice: {player.inventory.iceCubes.Count}");
+            }
+            else
+            {
+                Console.WriteLine("You do not have enough supples to create a pitcher");
+            }
+
+            
+        }
+
         private void GetPlayerName()
         {
             Console.WriteLine();

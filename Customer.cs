@@ -22,7 +22,7 @@ namespace LemonadeStand_3DayStarter
             result = rnd.Next(0, names.Count);
             //Console.WriteLine(names.Count + " " + rnd);
             //string name = "matt";
-            string name = names[result];
+            name = names[result];
             Console.WriteLine(name);
         }
 
