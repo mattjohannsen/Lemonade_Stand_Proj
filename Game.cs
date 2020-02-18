@@ -18,6 +18,7 @@ namespace LemonadeStand_3DayStarter
         public Game()
         {
             rnd = new Random();
+            days = new List<Day>();
         }
         public void RunGame()
         {
@@ -43,7 +44,7 @@ namespace LemonadeStand_3DayStarter
         private void ShowForecast()
         {
             Console.WriteLine();
-            Console.WriteLine($"       Day: {currentDay} | 98 degrees and condition");
+            Console.WriteLine($"       Day: {(currentDay + 1)} | {days[currentDay].weather.temperature} degrees and {days[currentDay].weather.condition}");
         }
 
 
@@ -117,9 +118,12 @@ namespace LemonadeStand_3DayStarter
             //Here is where we create the Days.The number of Days we create is based on the number based to us above.
             for (int i = 0; i < daysToCreate; i++)
             {
-                Day newDay = new Day(rnd);
+                //Day newDay = new Day(rnd);
+                days.Add(new Day(rnd));
             }
+            currentDay = 0;
         }
+
         private void ShowRules()
         {
             Console.WriteLine("Lemonade Stand Game");
