@@ -20,7 +20,7 @@ namespace LemonadeStand_3DayStarter
             pricePerLemon = .2;
             pricePerSugarCube = .1;
             pricePerIceCube = .01;
-            pricePerCup = .25;
+            pricePerCup = .05;
         }
 
         // member methods (CAN DO)
@@ -29,10 +29,10 @@ namespace LemonadeStand_3DayStarter
             Console.WriteLine();
             Console.WriteLine($"       What do you want to buy?");
             Console.WriteLine($"       (type 1, 2, 3, 4)?");
-            Console.WriteLine($"       1)   'cups' | you have: {player.inventory.cups.Count} | cost: {pricePerCup}");
-            Console.WriteLine($"       2) 'lemons' | you have: {player.inventory.lemons.Count} | cost: {pricePerLemon}");
-            Console.WriteLine($"       3)  'sugar' | you have: {player.inventory.sugarCubes.Count} | cost: {pricePerSugarCube}");
-            Console.Write($"       4)    'ice' | you have: {player.inventory.iceCubes.Count} | cost: {pricePerIceCube}" + "\n       ");
+            Console.WriteLine($"       1)   cups | you have: {player.inventory.cups.Count} | cost: {pricePerCup}");
+            Console.WriteLine($"       2) lemons | you have: {player.inventory.lemons.Count} | cost: {pricePerLemon}");
+            Console.WriteLine($"       3)  sugar | you have: {player.inventory.sugarCubes.Count} | cost: {pricePerSugarCube}");
+            Console.Write($"       4)    ice | you have: {player.inventory.iceCubes.Count} | cost: {pricePerIceCube}" + "\n       ");
 
                 string itemToBuy = Console.ReadLine();
                 if(itemToBuy == "1")

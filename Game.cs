@@ -112,10 +112,10 @@ namespace LemonadeStand_3DayStarter
         {
             Console.WriteLine();
             Console.WriteLine($"       {player.name}'s Inventory");
+            Console.WriteLine($"       You have: {player.inventory.cups.Count} cups");
             Console.WriteLine($"       You have: {player.inventory.lemons.Count} lemons");
             Console.WriteLine($"       You have: {player.inventory.sugarCubes.Count} sugar cubes");
             Console.WriteLine($"       You have: {player.inventory.iceCubes.Count} ice cubes");
-            Console.WriteLine($"       You have: {player.inventory.cups.Count} cups");
         }
         public void ShowWallet()
         {
