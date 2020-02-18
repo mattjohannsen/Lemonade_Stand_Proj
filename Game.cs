@@ -29,6 +29,7 @@ namespace LemonadeStand_3DayStarter
             ShowInventory();
             ShowRecipe();
             SelectGameOptions();
+
             //My next step is buying from my store, and editing my recipe.
 
 
@@ -37,11 +38,26 @@ namespace LemonadeStand_3DayStarter
 
 
         //member methods
-        public void SelectGameOptions()
+        private string SelectGameOptions()
         {
+            Console.WriteLine();
+            Console.WriteLine("Select an option:");
+            Console.WriteLine("(1) Buy Inventory");
+            Console.WriteLine("(2) Edit Recipe");
+            Console.WriteLine("(3) Sell Lemonade!");
+            string menuOption = Console.ReadLine();
+            switch (menuOption)
+            {
+                case "1":
+                case "2":
+                case "3":
+                    return menuOption;
+                default:
+                    Console.WriteLine("That is not a valid selection. Please try again.");
+                    return SelectGameOptions();
+            }
 
         }
-
 
         public void ShowRecipe()
         {
