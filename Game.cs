@@ -53,8 +53,41 @@ namespace LemonadeStand_3DayStarter
         private void SellLemonade(Random rnd)
         {
             Console.WriteLine();
-            Console.WriteLine($"       Day: {(currentDay + 1)} | {days[currentDay].weather.temperature} degrees and {days[currentDay].weather.condition}");
             player.CreatePitcher(player);
+            Console.WriteLine($"       Day: {(currentDay + 1)} | {days[currentDay].weather.temperature} degrees and {days[currentDay].weather.condition}");
+            //Create weather specific buyability variable for each customer
+            int result;
+            int buyabilityFactor;
+            switch (days[currentDay].weather.condition)
+            {
+                case "sunny":
+                    result = rnd.Next(80, 100);
+                    buyabilityFactor = ((result * int.Parse(days[currentDay].weather.temperature)) / 100);
+                    break;
+                case "hazy":
+                    result = rnd.Next(70, 90);
+                    buyabilityFactor = ((result * int.Parse(days[currentDay].weather.temperature)) / 100);
+                    break;
+                case "overcast":
+                    result = rnd.Next(60, 80);
+                    buyabilityFactor = ((result * int.Parse(days[currentDay].weather.temperature)) / 100);
+                    break;
+                case "cloudy":
+                    result = rnd.Next(50, 70);
+                    buyabilityFactor = ((result * int.Parse(days[currentDay].weather.temperature)) / 100);
+                    break;
+                case "rainy":
+                    result = rnd.Next(50, 80);
+                    buyabilityFactor = ((result * int.Parse(days[currentDay].weather.temperature)) / 100);
+                    break;
+                default:
+                    Console.WriteLine("Not a valid weather condition");
+                    //I need help here to make a proper default case
+                    buyabilityFactor = 1;
+                    break;
+            }
+
+            Console.WriteLine($"{buyabilityFactor}");
             Console.WriteLine($"       # of customers: {days[currentDay].customers.Count}");
             Console.WriteLine($"       Recipe likeability: {player.recipe.recipeLikeability}");
 
@@ -64,7 +97,7 @@ namespace LemonadeStand_3DayStarter
                 //Console.Write($"{days[i].customers}");
                 foreach (Customer customer in days[currentDay].customers)
                 {
-                Console.WriteLine($"{customer.name}");
+                Console.WriteLine($"       Customer: {customer.name}");
                 }
                 //Console.Write($"{days[0].customers[0]}");
             //}
