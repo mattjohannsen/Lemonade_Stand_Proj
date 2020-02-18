@@ -59,7 +59,7 @@ namespace LemonadeStand_3DayStarter
             Console.WriteLine("       Select an option:");
             Console.WriteLine("       (1) Buy Inventory");
             Console.WriteLine("       (2) Edit Recipe");
-            Console.WriteLine("       (3) Sell Lemonade!");
+            Console.Write("       (3) Sell Lemonade!" + "\n       ");
             string menuOption = Console.ReadLine();
             switch (menuOption)
             {
@@ -106,7 +106,7 @@ namespace LemonadeStand_3DayStarter
 
         private string SetNumberOfDays()
         {
-            Console.WriteLine("Are you playing for 7, 14 or 30 days?");
+            Console.Write("       Are you playing for 7, 14 or 30 days?" + "\n       ");
             string numberOfDays = Console.ReadLine();
             switch (numberOfDays)
             {
@@ -135,7 +135,8 @@ namespace LemonadeStand_3DayStarter
 
         private void ShowRules()
         {
-            Console.WriteLine("Lemonade Stand Game");
+            Console.WriteLine();
+            Console.WriteLine("       Lemonade Stand Game");
             //This is where the rules start
             //Console.WriteLine("You have 7, 14, or 30 days to make as much money as possible, and you’ve decided to open");
             //Console.WriteLine("a lemonade stand! You’ll have complete control over your business, including pricing, ");

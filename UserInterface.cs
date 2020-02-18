@@ -15,8 +15,9 @@ namespace LemonadeStand_3DayStarter
 
             while (!userInputIsAnInteger || quantityOfItem < 0)
             {
-                Console.WriteLine("How many " + itemsToGet + " would you like to buy?");
-                Console.WriteLine("Please enter a positive integer (or 0 to cancel):");
+                Console.WriteLine();
+                Console.WriteLine("       How many " + itemsToGet + " would you like to buy?");
+                Console.Write("       Please enter a positive integer (or 0 to cancel):" +"\n       ");
 
                 userInputIsAnInteger = Int32.TryParse(Console.ReadLine(), out quantityOfItem);
             }

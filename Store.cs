@@ -27,10 +27,35 @@ namespace LemonadeStand_3DayStarter
         public void BuyInventory(Player player)
         {
             Console.WriteLine();
-            Console.WriteLine($"     Do you want to buy:");
-            Console.WriteLine($"     Do you want to buy:");
-            Console.WriteLine($"     Do you want to buy:");
-            Console.WriteLine($"     Do you want to buy:");
+            Console.WriteLine($"       What do you want to buy?");
+            Console.WriteLine($"       (type cups, lemons, sugar or ice)?");
+            Console.WriteLine($"       1)   'cups' | you have: {player.inventory.cups.Count}");
+            Console.WriteLine($"       2) 'lemons' | you have: {player.inventory.lemons.Count}");
+            Console.WriteLine($"       3)  'sugar' | you have: {player.inventory.sugarCubes.Count}");
+            Console.Write($"       4)    'ice' | you have: {player.inventory.iceCubes.Count}" + "\n       ");
+
+                string itemToBuy = Console.ReadLine();
+                if(itemToBuy == "cups")
+                    {
+                        SellCups(player);
+                    }
+                else if (itemToBuy == "lemons")
+                    {
+                        SellLemons(player);
+                    }
+                else if (itemToBuy == "sugar")
+                    {
+                        SellSugarCubes(player);
+                    }
+                else if (itemToBuy == "ice")
+                    {
+                        SellIceCubes(player);
+                    }
+                else
+                {
+                Console.WriteLine("That is not a valid choice");
+                BuyInventory(player);
+                }
         }
         public void SellLemons(Player player)
         {
