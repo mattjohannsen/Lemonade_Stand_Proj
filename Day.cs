@@ -29,6 +29,7 @@ namespace LemonadeStand_3DayStarter
             for (int i = 0; i < totalCustomersToMake; i++)
             {
                 Customer newCustomer = new Customer(rnd);
+                customers.Add(newCustomer);
             }
         }
         
