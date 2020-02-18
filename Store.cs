@@ -28,26 +28,26 @@ namespace LemonadeStand_3DayStarter
         {
             Console.WriteLine();
             Console.WriteLine($"       What do you want to buy?");
-            Console.WriteLine($"       (type cups, lemons, sugar or ice)?");
-            Console.WriteLine($"       1)   'cups' | you have: {player.inventory.cups.Count}");
-            Console.WriteLine($"       2) 'lemons' | you have: {player.inventory.lemons.Count}");
-            Console.WriteLine($"       3)  'sugar' | you have: {player.inventory.sugarCubes.Count}");
-            Console.Write($"       4)    'ice' | you have: {player.inventory.iceCubes.Count}" + "\n       ");
+            Console.WriteLine($"       (type 1, 2, 3, 4)?");
+            Console.WriteLine($"       1)   'cups' | you have: {player.inventory.cups.Count} | cost: {pricePerCup}");
+            Console.WriteLine($"       2) 'lemons' | you have: {player.inventory.lemons.Count} | cost: {pricePerLemon}");
+            Console.WriteLine($"       3)  'sugar' | you have: {player.inventory.sugarCubes.Count} | cost: {pricePerSugarCube}");
+            Console.Write($"       4)    'ice' | you have: {player.inventory.iceCubes.Count} | cost: {pricePerIceCube}" + "\n       ");
 
                 string itemToBuy = Console.ReadLine();
-                if(itemToBuy == "cups")
+                if(itemToBuy == "1")
                     {
                         SellCups(player);
                     }
-                else if (itemToBuy == "lemons")
+                else if (itemToBuy == "2")
                     {
                         SellLemons(player);
                     }
-                else if (itemToBuy == "sugar")
+                else if (itemToBuy == "3")
                     {
                         SellSugarCubes(player);
                     }
-                else if (itemToBuy == "ice")
+                else if (itemToBuy == "4")
                     {
                         SellIceCubes(player);
                     }
