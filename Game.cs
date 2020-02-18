@@ -52,15 +52,21 @@ namespace LemonadeStand_3DayStarter
         //member methods
         private void SellLemonade(Random rnd)
         {
-            ShowForecast();
+            Console.WriteLine();
+            Console.WriteLine($"       Day: {(currentDay + 1)} | {days[currentDay].weather.temperature} degrees and {days[currentDay].weather.condition}");
             player.CreatePitcher(player);
-            Console.WriteLine($"       # of customers: {days[0].customers.Count}");
+            Console.WriteLine($"       # of customers: {days[currentDay].customers.Count}");
             Console.WriteLine($"       Recipe likeability: {player.recipe.recipeLikeability}");
 
             //This is where the code loops through and decides if the customer buys or not.
-            //for (int i = 0; i < days[0].customers.Count; i++)
+            //for (int i = 0; i < days[currentDay].customers.Count; i++)
             //{
-            //    Console.Write($"{days[i].customers}");
+                //Console.Write($"{days[i].customers}");
+                foreach (Customer customer in days[currentDay].customers)
+                {
+                Console.WriteLine($"{customer.name}");
+                }
+                //Console.Write($"{days[0].customers[0]}");
             //}
             Console.ReadLine();
 
