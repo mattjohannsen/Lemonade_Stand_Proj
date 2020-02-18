@@ -55,6 +55,7 @@ namespace LemonadeStand_3DayStarter
                 {
                 Console.WriteLine("That is not a valid choice!");
                 BuyInventory(player);
+                //Need to ask about not putting return in front of this recursion.
                 }
         }
         public void SellLemons(Player player)

@@ -25,12 +25,44 @@ namespace LemonadeStand_3DayStarter
         }
 
         // member methods (CAN DO)
-        public void GetPlayerName()
+        private void GetPlayerName()
         {
             Console.WriteLine();
             Console.Write("       What is the player's name?" + "\n       ");
             name = Console.ReadLine();
-            //name = Console.Readline();
+        }
+
+        public void EditRecipe(Player player)
+        {
+            Console.WriteLine();
+            Console.WriteLine("       Which part of the recipe would you like to change?");
+            Console.WriteLine($"       (1)     Price per Cup: {player.recipe.pricePerCup}");
+            Console.WriteLine($"       (2)  Amount of lemons: {player.recipe.amountOfLemons}");
+            Console.WriteLine($"       (3)   Amount of sugar: {player.recipe.amountOfSugarCubes}");
+            Console.Write($"       (4) Ice cubes per cup: {player.recipe.amountOfIceCubes}" + "\n       ");
+            string recipeItemToEdit = Console.ReadLine();
+            if (recipeItemToEdit == "1")
+            {
+                player.recipe.EditPricePerCup(player);
+            }
+            else if (recipeItemToEdit == "2")
+            {
+                player.recipe.EditLemonsPerPitcher(player);
+            }
+            else if (recipeItemToEdit == "3")
+            {
+                player.recipe.EditSugarPerPitcher(player);
+            }
+            else if (recipeItemToEdit == "4")
+            {
+                player.recipe.EditIcePerCup(player);
+            }
+            else
+            {
+                Console.WriteLine("That is not a valid choice!");
+                EditRecipe(player);
+                //Need to ask about not putting return in front of this recursion.
+            }
         }
     }
 }

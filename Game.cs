@@ -70,6 +70,10 @@ namespace LemonadeStand_3DayStarter
                 //Console.WriteLine("Buy inventory");
                 store.BuyInventory(player);
             }
+            else if (menuOption == "2")
+            {
+                player.EditRecipe(player);
+            }
         }
         private string SelectGameOptions()
         {
