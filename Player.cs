@@ -30,16 +30,15 @@ namespace LemonadeStand_3DayStarter
         {
             Console.WriteLine("\n        We are making a pitcher");
             int ourLemons = inventory.lemons.Count;
-            int pitcherLemons = recipe.amountOfLemons;
+            int recipeLemons = recipe.amountOfLemons;
             int ourSugar = inventory.sugarCubes.Count;
-            int pitcherSugar = recipe.amountOfSugarCubes;
-            //int ourIce = player.inventory.iceCubes.Count;
-            //int pitcherIce = player.recipe.amountOfIceCubes;
-            if ((pitcherLemons <= ourLemons) && (pitcherSugar <= ourSugar))
+            int recipeSugar = recipe.amountOfSugarCubes;
+            if ((recipeLemons <= ourLemons) && (recipeSugar <= ourSugar))
             {
 
-                inventory.lemons.RemoveRange(0, pitcherLemons);
-                inventory.sugarCubes.RemoveRange(0, pitcherSugar);
+                inventory.lemons.RemoveRange(0, recipeLemons);
+                inventory.sugarCubes.RemoveRange(0, recipeSugar);
+                pitcher.cupsLeftInPitcher = 11;
                 //player.pitcher.cupsLeftInPitcher
                 //player.inventory.iceCubes.RemoveRange(0, pitcherIce);
             }
