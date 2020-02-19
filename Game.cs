@@ -51,16 +51,10 @@ namespace LemonadeStand_3DayStarter
             player.CreatePitcher();
             int buyabilityFactor;
             buyabilityFactor = GetBuyabilityForCustomers(rnd);
-
-            //Console.WriteLine($"{buyabilityFactor}x{player.recipe.recipeLikeability}=({.01*buyabilityFactor* player.recipe.recipeLikeability})");
-            Console.WriteLine($"       # of customers: {days[currentDay].customers.Count}");
-            Console.WriteLine($"       Recipe likeability: {player.recipe.recipeLikeability}");
-
-            //This is the code that goes through the customers and decides if they will buy or not
             double chanceOfPurchase;
-            double recipeLikeability;
-            recipeLikeability = ((double)player.recipe.recipeLikeability);
-            chanceOfPurchase = buyabilityFactor * recipeLikeability;
+            chanceOfPurchase = GetCustomerChanceOfPurchase(buyabilityFactor);
+
+
             //This begins the loop that goes through the customers  
             foreach (Customer customer in days[currentDay].customers)
             {
@@ -116,6 +110,18 @@ namespace LemonadeStand_3DayStarter
             //The Loop going through the customers is finished and so is the day at Lemonade stand, so below I reassign the variables for the next day.
             currentDay++;
             goSellLemonade = false;
+        }
+        private double GetCustomerChanceOfPurchase(int buyabilityFactor)
+        {
+            //This is the code that goes through the customers and decides if they will buy or not
+            double chanceOfPurchase;
+            Console.WriteLine();
+            Console.WriteLine($"       # of customers: {days[currentDay].customers.Count}");
+            Console.WriteLine($"       Recipe likeability: {player.recipe.recipeLikeability}");
+            Console.WriteLine($"       |{buyabilityFactor}|");
+            double recipeLikeability;
+            recipeLikeability = player.recipe.recipeLikeability;
+            return chanceOfPurchase = buyabilityFactor * recipeLikeability;
         }
         private int GetBuyabilityForCustomers(Random rnd)
         {
