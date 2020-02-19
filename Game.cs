@@ -122,6 +122,7 @@ namespace LemonadeStand_3DayStarter
                                             player.inventory.cups.RemoveRange(0, 1);
                                             player.inventory.iceCubes.RemoveRange(0, player.recipe.amountOfIceCubes);
                                             player.pitcher.cupsLeftInPitcher--;
+                                            player.wallet.Money += player.recipe.pricePerCup;
                                             didTheyBuy = true;
                                         }
                                     else
