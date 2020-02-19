@@ -35,7 +35,6 @@ namespace LemonadeStand_3DayStarter
             int recipeSugar = recipe.amountOfSugarCubes;
             if ((recipeLemons <= ourLemons) && (recipeSugar <= ourSugar))
             {
-
                 inventory.lemons.RemoveRange(0, recipeLemons);
                 inventory.sugarCubes.RemoveRange(0, recipeSugar);
                 pitcher.cupsLeftInPitcher = 11;
@@ -48,8 +47,6 @@ namespace LemonadeStand_3DayStarter
                 Console.WriteLine("SOLD OUT!");
                 //Supplies are out end of day
             }
-
-            
         }
 
         //SOLID Single Responsibility example. I isolated the single act of getting a player’s name in its own function..

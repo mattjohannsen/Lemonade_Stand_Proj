@@ -47,40 +47,10 @@ namespace LemonadeStand_3DayStarter
         //member methods
         private void SellLemonade(Random rnd)
         {
-            Console.WriteLine();
+            ShowForecast();
             player.CreatePitcher();
-            Console.WriteLine($"       Day: {(currentDay + 1)} | {days[currentDay].weather.temperature} degrees and {days[currentDay].weather.condition}");
-            //Create weather specific buyability variable for each customer
-            int result;
             int buyabilityFactor;
-            switch (days[currentDay].weather.condition)
-            {
-                case "sunny":
-                    result = rnd.Next(90, 100);
-                    buyabilityFactor = ((result + int.Parse(days[currentDay].weather.temperature)) / 2);
-                    break;
-                case "hazy":
-                    result = rnd.Next(80, 90);
-                    buyabilityFactor = ((result + int.Parse(days[currentDay].weather.temperature)) / 2);
-                    break;
-                case "overcast":
-                    result = rnd.Next(70, 80);
-                    buyabilityFactor = ((result + int.Parse(days[currentDay].weather.temperature)) / 2);
-                    break;
-                case "cloudy":
-                    result = rnd.Next(60, 70);
-                    buyabilityFactor = ((result + int.Parse(days[currentDay].weather.temperature)) / 2);
-                    break;
-                case "rainy":
-                    result = rnd.Next(50, 80);
-                    buyabilityFactor = ((result + int.Parse(days[currentDay].weather.temperature)) / 2);
-                    break;
-                default:
-                    Console.WriteLine("Not a valid weather condition");
-                    //I need help here to make a proper default case
-                    buyabilityFactor = 1;
-                    break;
-            }
+            buyabilityFactor = GetBuyabilityForCustomers(rnd);
 
             //Console.WriteLine($"{buyabilityFactor}x{player.recipe.recipeLikeability}=({.01*buyabilityFactor* player.recipe.recipeLikeability})");
             Console.WriteLine($"       # of customers: {days[currentDay].customers.Count}");
@@ -90,7 +60,7 @@ namespace LemonadeStand_3DayStarter
             double chanceOfPurchase;
             double recipeLikeability;
             recipeLikeability = ((double)player.recipe.recipeLikeability);
-            chanceOfPurchase = (buyabilityFactor * recipeLikeability);
+            chanceOfPurchase = buyabilityFactor * recipeLikeability;
             //This begins the loop that goes through the customers  
             foreach (Customer customer in days[currentDay].customers)
             {
@@ -146,6 +116,39 @@ namespace LemonadeStand_3DayStarter
             //The Loop going through the customers is finished and so is the day at Lemonade stand, so below I reassign the variables for the next day.
             currentDay++;
             goSellLemonade = false;
+        }
+        private int GetBuyabilityForCustomers(Random rnd)
+        {
+            //Create weather specific buyability variable for each customer
+            int result;
+            int buyabilityFactor;
+            switch (days[currentDay].weather.condition)
+            {
+                case "sunny":
+                    result = rnd.Next(90, 100);
+                    return buyabilityFactor = ((result + int.Parse(days[currentDay].weather.temperature)) / 2);
+                    break;
+                case "hazy":
+                    result = rnd.Next(80, 90);
+                    return buyabilityFactor = ((result + int.Parse(days[currentDay].weather.temperature)) / 2);
+                    break;
+                case "overcast":
+                    result = rnd.Next(70, 80);
+                    return buyabilityFactor = ((result + int.Parse(days[currentDay].weather.temperature)) / 2);
+                    break;
+                case "cloudy":
+                    result = rnd.Next(60, 70);
+                    return buyabilityFactor = ((result + int.Parse(days[currentDay].weather.temperature)) / 2);
+                    break;
+                case "rainy":
+                    result = rnd.Next(50, 80);
+                    return buyabilityFactor = ((result + int.Parse(days[currentDay].weather.temperature)) / 2);
+                    break;
+                default:
+                    Console.WriteLine("Not a valid weather condition");
+                    return buyabilityFactor = 1;
+                    break;
+            }
         }
         private void ShowPlayerStandStatus()
         {
