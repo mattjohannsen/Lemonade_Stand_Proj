@@ -8,7 +8,7 @@ namespace LemonadeStand_3DayStarter
 {
     class Pitcher
     {
-        //member methods
+        //member variables
         public int cupsLeftInPitcher;
 
         //constructor
@@ -17,7 +17,7 @@ namespace LemonadeStand_3DayStarter
             cupsLeftInPitcher = 11;
         }
 
-        //member variables
+        //member methods
 
 
     }

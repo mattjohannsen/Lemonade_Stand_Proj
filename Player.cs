@@ -21,30 +21,32 @@ namespace LemonadeStand_3DayStarter
             inventory = new Inventory();
             wallet = new Wallet();
             recipe = new Recipe();
+            pitcher = new Pitcher();
             GetPlayerName();
         }
 
         // member methods (CAN DO)
-        public void CreatePitcher(Player player)
+        public void CreatePitcher()
         {
             Console.WriteLine("\n        We are making a pitcher");
-            int ourLemons = player.inventory.lemons.Count;
-            int pitcherLemons = player.recipe.amountOfLemons;
-            int ourSugar = player.inventory.sugarCubes.Count;
-            int pitcherSugar = player.recipe.amountOfSugarCubes;
-            int ourIce = player.inventory.iceCubes.Count;
-            int pitcherIce = player.recipe.amountOfIceCubes;
-            if ((pitcherLemons <= ourLemons) && (pitcherSugar <= ourSugar) && (pitcherIce <= ourIce))
+            int ourLemons = inventory.lemons.Count;
+            int pitcherLemons = recipe.amountOfLemons;
+            int ourSugar = inventory.sugarCubes.Count;
+            int pitcherSugar = recipe.amountOfSugarCubes;
+            //int ourIce = player.inventory.iceCubes.Count;
+            //int pitcherIce = player.recipe.amountOfIceCubes;
+            if ((pitcherLemons <= ourLemons) && (pitcherSugar <= ourSugar))
             {
-                Pitcher newPitcher = new Pitcher();
-                player.inventory.lemons.RemoveRange(0, pitcherLemons);
-                player.inventory.sugarCubes.RemoveRange(0, pitcherSugar);
+
+                inventory.lemons.RemoveRange(0, pitcherLemons);
+                inventory.sugarCubes.RemoveRange(0, pitcherSugar);
                 //player.pitcher.cupsLeftInPitcher
                 //player.inventory.iceCubes.RemoveRange(0, pitcherIce);
             }
             else
             {
                 Console.WriteLine("You do not have enough supplies to create a pitcher");
+                Console.WriteLine("SOLD OUT!");
                 //Supplies are out end of day
             }
 

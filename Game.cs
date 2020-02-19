@@ -35,15 +35,13 @@ namespace LemonadeStand_3DayStarter
             {
                 //Console.WriteLine($"This is Day:{currentDay}");
                 //This is where the loop will go adding 1 to previous day
-                do
+
+                while (goSellLemonade == false)
                 {
-                    while (goSellLemonade == false)
-                    {
-                        ShowPlayerStandStatus();
-                    }
-                    SellLemonade(rnd);
+                    ShowPlayerStandStatus();
                 }
-                while (continueGame == true);
+                SellLemonade(rnd);
+
                 //My next step is buying from my store, and editing my recipe.
                 //This is where the loop will end adding 1 to previous day and ending when game is over.
             }
@@ -55,7 +53,7 @@ namespace LemonadeStand_3DayStarter
         private void SellLemonade(Random rnd)
         {
             Console.WriteLine();
-            player.CreatePitcher(player);
+            player.CreatePitcher();
             Console.WriteLine($"       Day: {(currentDay + 1)} | {days[currentDay].weather.temperature} degrees and {days[currentDay].weather.condition}");
             //Create weather specific buyability variable for each customer
             int result;
@@ -93,30 +91,63 @@ namespace LemonadeStand_3DayStarter
             Console.WriteLine($"       # of customers: {days[currentDay].customers.Count}");
             Console.WriteLine($"       Recipe likeability: {player.recipe.recipeLikeability}");
 
-            //This is where the code loops through and decides if the customer buys or not.
+            //This is the code that goes through the customers and decides if they will buy or not
             double chanceOfPurchase;
             double recipeLikeability;
             recipeLikeability = ((double)player.recipe.recipeLikeability);
             chanceOfPurchase = (buyabilityFactor * recipeLikeability);
-                foreach (Customer customer in days[currentDay].customers)
+            //This begins the loop that goes through the customers  
+            foreach (Customer customer in days[currentDay].customers)
+            {
+            int buyrandom;
+            bool didTheyBuy;
+            int ourLemons = player.inventory.lemons.Count;
+            int pitcherLemons = player.recipe.amountOfLemons;
+            int ourSugar = player.inventory.sugarCubes.Count;
+            int pitcherSugar = player.recipe.amountOfSugarCubes;
+            int ourIce = player.inventory.iceCubes.Count;
+            int cupIce = player.recipe.amountOfIceCubes;
+            int ourCups = player.inventory.iceCubes.Count;
+            int pitcherCups = player.pitcher.cupsLeftInPitcher;
+            buyrandom = rnd.Next(1, 100);
+                if(buyrandom<= chanceOfPurchase)
                 {
-                int buyrandom;
-                bool didTheyBuy;
-                buyrandom = rnd.Next(1, 100);
-                    if(buyrandom<= chanceOfPurchase)
-                    {
-                        didTheyBuy = true;
-                        Console.WriteLine($"       {customer.name}: bought lemonade");
-                        player.inventory.cups.RemoveRange(0, 1);
-                        player.inventory.iceCubes.RemoveRange(0, player.recipe.amountOfIceCubes);
+                    if (pitcherCups >= 1) //We have lemonade left in the pitcher to sell, so SELL IT!
+                        {
+                            if (cupIce<= ourIce) //BUT first check to see if we have ice
+                                {
+                                    if(ourCups >= 0) //We also need to check to see if we enough cups in our inventory
+                                        {
+                                            Console.WriteLine($"       {customer.name}: bought lemonade");
+                                            player.inventory.cups.RemoveRange(0, 1);
+                                            player.inventory.iceCubes.RemoveRange(0, player.recipe.amountOfIceCubes);
+                                            player.pitcher.cupsLeftInPitcher--;
+                                            didTheyBuy = true;
+                                        }
+                                    else
+                                        {
+                                            Console.WriteLine("You are out of cups! We are sold out for the day!");
+                                        }
+                                }
+                            else //We do not have enough ice in our inventory
+                                {
+                                    Console.WriteLine("You are out of ice! We are sold out for the day!");
+                                }
 
+                        }
+                    else //We do not have lemonade left in the pitcher to sell
+                        {
+                            //If we have the available inventory, no problem we will try make another pitcher.
+                            player.CreatePitcher();
                 }
-                    else
-                    {
-                        didTheyBuy = false;
-                        Console.WriteLine($"       {customer.name}: did not buy");
-                    }
                 }
+                else
+                {
+                    didTheyBuy = false;
+                    Console.WriteLine($"       {customer.name}: did not buy");
+                }
+            }
+            //The Loop going through the customers is finished and so is the day at Lemonade stand, so below I reassign the variables for the next day.
             currentDay++;
             goSellLemonade = false;
         }
