@@ -52,6 +52,7 @@ namespace LemonadeStand_3DayStarter
             
         }
 
+        //SOLID Single Responsibility example. I isolated the single act of getting a player’s name in its own function..
         private void GetPlayerName()
         {
             Console.WriteLine();

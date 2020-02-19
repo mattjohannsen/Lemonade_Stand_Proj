@@ -31,27 +31,28 @@ namespace LemonadeStand_3DayStarter
         public void GenerateWeatherCondition()
         {
             int result;
+            //Below is an example of one of the SOLID principles. Instead of hardcoding the number 5 in the rnd.Next(0, 5) I used weatherConditions.Count so that in the future I can change the number of weather conditions without having to change the code.
             result = rnd.Next(0, weatherConditions.Count);
             switch (result)
             {
                 case 0:
-                    condition = weatherConditions[0];
+                    condition = "sunny";
                     //Console.WriteLine($"The weather will be: {condition}.");
                     break;
                 case 1:
-                    condition = weatherConditions[1];
+                    condition = "hazy";
                     //Console.WriteLine($"The weather will be: {condition}.");
                     break;
                 case 2:
-                    condition = weatherConditions[2];
+                    condition = "overcast";
                     //Console.WriteLine($"The weather will be: {condition}.");
                     break;
                 case 3:
-                    condition = weatherConditions[3];
+                    condition = "cloudy";
                     //Console.WriteLine($"The weather will be: {condition}.");
                     break;
                 case 4:
-                    condition = weatherConditions[4];
+                    condition = "rainy";
                     //Console.WriteLine($"The weather will be: {condition}.");
                     break;
                 default:
@@ -94,8 +95,6 @@ namespace LemonadeStand_3DayStarter
                     Console.WriteLine("       Not a valid weather condition");
                     break;
             }
-            //result = rnd.Next(50, 100);
-            //temperature = Convert.ToString(result);
         }
 
 
