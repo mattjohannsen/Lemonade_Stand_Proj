@@ -31,23 +31,25 @@ namespace LemonadeStand_3DayStarter
             int daysToCreate = int.Parse(SetNumberOfDays());
             CreateTheDays(daysToCreate);
             player = new Player();
-            //This is where the loop will go adding 1 to previous day
-            do
+            foreach (Day day in days)
             {
-                while (goSellLemonade == false)
+                Console.WriteLine($"This is Day:{currentDay}");
+                //This is where the loop will go adding 1 to previous day
+                do
                 {
-                    ShowPlayerStandStatus();
+                    while (goSellLemonade == false)
+                    {
+                        ShowPlayerStandStatus();
+                    }
+                    SellLemonade(rnd);
                 }
-                SellLemonade(rnd);
+                while (continueGame == true);
+                //My next step is buying from my store, and editing my recipe.
+                //This is where the loop will end adding 1 to previous day and ending when game is over.
             }
-            while (continueGame == true);
-            //My next step is buying from my store, and editing my recipe.
-            //This is where the loop will end adding 1 to previous day and ending when game is over.
-
-
-
+            Console.WriteLine("GAME OVER");
+            Console.ReadLine();
         }
-
 
         //member methods
         private void SellLemonade(Random rnd)
@@ -112,8 +114,9 @@ namespace LemonadeStand_3DayStarter
                         Console.WriteLine($"       Customer: {customer.name}: did not buy");
                     }
                 }
+            currentDay++;
+            Console.WriteLine("Press any key to go on");
             Console.ReadLine();
-
         }
         private void ShowPlayerStandStatus()
         {
