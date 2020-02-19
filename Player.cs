@@ -34,35 +34,17 @@ namespace LemonadeStand_3DayStarter
             int pitcherSugar = player.recipe.amountOfSugarCubes;
             int ourIce = player.inventory.iceCubes.Count;
             int pitcherIce = player.recipe.amountOfIceCubes;
-            //Console.WriteLine($"Before lemons: {player.inventory.lemons.Count}");
-            //Console.WriteLine($"Before sugar: {player.inventory.sugarCubes.Count}");
-            //Console.WriteLine($"Before ice: {player.inventory.iceCubes.Count}");
-            //Compare the requirements of the pitcher to the known quantities of inventory
             if ((pitcherLemons <= ourLemons) && (pitcherSugar <= ourSugar) && (pitcherIce <= ourIce))
             {
                 Pitcher newPitcher = new Pitcher();
-                //We are taking the lemons used in this Pitcher out of inventory
-                for (int i = 0; i < pitcherLemons; i++)
-                {
-                    player.inventory.lemons.RemoveAt(i);
-                }
-                //We are taking the sugar used in this Pitcher out of inventory
-                for (int i = 0; i < pitcherSugar; i++)
-                {
-                    player.inventory.sugarCubes.RemoveAt(i);
-                }
-                //We are taking the ice used in this Pitcher out of inventory
-                for (int i = 0; i < pitcherIce; i++)
-                {
-                    player.inventory.iceCubes.RemoveAt(i);
-                }
-                //Console.WriteLine($"After lemons: {player.inventory.lemons.Count}");
-                //Console.WriteLine($" After sugar: {player.inventory.sugarCubes.Count}");
-                //Console.WriteLine($"   After ice: {player.inventory.iceCubes.Count}");
+                player.inventory.lemons.RemoveRange(0, pitcherLemons);
+                player.inventory.sugarCubes.RemoveRange(0, pitcherSugar);
+                player.inventory.iceCubes.RemoveRange(0, pitcherIce);
             }
             else
             {
-                Console.WriteLine("You do not have enough supples to create a pitcher");
+                Console.WriteLine("You do not have enough supplies to create a pitcher");
+                //Supplies are out end of day
             }
 
             

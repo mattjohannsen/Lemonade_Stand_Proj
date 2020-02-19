@@ -87,20 +87,34 @@ namespace LemonadeStand_3DayStarter
                     break;
             }
 
-            Console.WriteLine($"{buyabilityFactor}");
+            Console.WriteLine($"{buyabilityFactor}x{player.recipe.recipeLikeability}=({.01*buyabilityFactor* player.recipe.recipeLikeability})");
             Console.WriteLine($"       # of customers: {days[currentDay].customers.Count}");
             Console.WriteLine($"       Recipe likeability: {player.recipe.recipeLikeability}");
 
             //This is where the code loops through and decides if the customer buys or not.
             //for (int i = 0; i < days[currentDay].customers.Count; i++)
             //{
-                //Console.Write($"{days[i].customers}");
+            //Console.Write($"{days[i].customers}");
+            double chanceOfPurchase;
+            double recipeLikeability;
+            recipeLikeability = ((double)player.recipe.recipeLikeability);
+            chanceOfPurchase = (buyabilityFactor * recipeLikeability);
                 foreach (Customer customer in days[currentDay].customers)
                 {
-                Console.WriteLine($"       Customer: {customer.name}");
+                int buyrandom;
+                bool didTheyBuy;
+                buyrandom = rnd.Next(1, 100);
+                    if(buyrandom<= chanceOfPurchase)
+                    {
+                        didTheyBuy = true;
+                        Console.WriteLine($"       Customer: {customer.name}: bought lemonade");
+                    }
+                    else
+                    {
+                        didTheyBuy = false;
+                        Console.WriteLine($"       Customer: {customer.name}: did not buy");
+                    }
                 }
-                //Console.Write($"{days[0].customers[0]}");
-            //}
             Console.ReadLine();
 
         }
