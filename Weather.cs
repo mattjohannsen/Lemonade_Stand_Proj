@@ -68,30 +68,30 @@ namespace LemonadeStand_3DayStarter
                 case "sunny":
                     result = rnd.Next(80, 100);
                     temperature = Convert.ToString(result);
-                    Console.WriteLine($"The temperature will be {temperature}:{condition}");
+                    Console.WriteLine($"       The temperature will be {temperature}:{condition}");
                     break;
                 case "hazy":
                     result = rnd.Next(70, 90);
                     temperature = Convert.ToString(result);
-                    Console.WriteLine($"The temperature will be {temperature}:{condition}");
+                    Console.WriteLine($"       The temperature will be {temperature}:{condition}");
                     break;
                 case "overcast":
                     result = rnd.Next(60, 80);
                     temperature = Convert.ToString(result);
-                    Console.WriteLine($"The temperature will be {temperature}:{condition}");
+                    Console.WriteLine($"       The temperature will be {temperature}:{condition}");
                     break;
                 case "cloudy":
                     result = rnd.Next(50, 70);
                     temperature = Convert.ToString(result);
-                    Console.WriteLine($"The temperature will be {temperature}:{condition}");
+                    Console.WriteLine($"       The temperature will be {temperature}:{condition}");
                     break;
                 case "rainy":
                     result = rnd.Next(50, 80);
                     temperature = Convert.ToString(result);
-                    Console.WriteLine($"The temperature will be {temperature}:{condition}");
+                    Console.WriteLine($"       The temperature will be {temperature}:{condition}");
                     break;
                 default:
-                    Console.WriteLine("Not a valid weather condition");
+                    Console.WriteLine("       Not a valid weather condition");
                     break;
             }
             //result = rnd.Next(50, 100);

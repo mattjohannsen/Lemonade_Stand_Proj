@@ -35,7 +35,7 @@ namespace LemonadeStand_3DayStarter
         
         public int GetNumberOfCustomers()
         {
-            Console.WriteLine($"Temperature: {weather.temperature} Condition: {weather.condition}");
+            //Console.WriteLine($"Temperature: {weather.temperature} Condition: {weather.condition}");
             int result;
             int totalCustomersToMake;
             switch (weather.condition)

@@ -33,7 +33,7 @@ namespace LemonadeStand_3DayStarter
             player = new Player();
             foreach (Day day in days)
             {
-                Console.WriteLine($"This is Day:{currentDay}");
+                //Console.WriteLine($"This is Day:{currentDay}");
                 //This is where the loop will go adding 1 to previous day
                 do
                 {
@@ -106,17 +106,19 @@ namespace LemonadeStand_3DayStarter
                     if(buyrandom<= chanceOfPurchase)
                     {
                         didTheyBuy = true;
-                        Console.WriteLine($"       Customer: {customer.name}: bought lemonade");
-                    }
+                        Console.WriteLine($"       {customer.name}: bought lemonade");
+                        player.inventory.cups.RemoveRange(0, 1);
+                        player.inventory.iceCubes.RemoveRange(0, player.recipe.amountOfIceCubes);
+
+                }
                     else
                     {
                         didTheyBuy = false;
-                        Console.WriteLine($"       Customer: {customer.name}: did not buy");
+                        Console.WriteLine($"       {customer.name}: did not buy");
                     }
                 }
             currentDay++;
-            Console.WriteLine("Press any key to go on");
-            Console.ReadLine();
+            goSellLemonade = false;
         }
         private void ShowPlayerStandStatus()
         {
@@ -210,7 +212,7 @@ namespace LemonadeStand_3DayStarter
 
         private void CreateTheDays(int daysToCreate)
         {
-            Console.WriteLine($"Now we are going to create {daysToCreate} days...");
+            //Console.WriteLine($"Now we are going to create {daysToCreate} days...");
             //Here is where we create the Days.The number of Days we create is based on the number based to us above.
             for (int i = 0; i < daysToCreate; i++)
             {

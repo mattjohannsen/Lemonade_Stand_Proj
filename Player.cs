@@ -39,7 +39,8 @@ namespace LemonadeStand_3DayStarter
                 Pitcher newPitcher = new Pitcher();
                 player.inventory.lemons.RemoveRange(0, pitcherLemons);
                 player.inventory.sugarCubes.RemoveRange(0, pitcherSugar);
-                player.inventory.iceCubes.RemoveRange(0, pitcherIce);
+                //player.pitcher.cupsLeftInPitcher
+                //player.inventory.iceCubes.RemoveRange(0, pitcherIce);
             }
             else
             {
