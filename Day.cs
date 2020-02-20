@@ -60,11 +60,9 @@ namespace LemonadeStand_3DayStarter
                     return totalCustomersToMake;
                 default:
                     Console.WriteLine("Not a valid weather condition");
-                    //I need help here to make a proper default case
                     totalCustomersToMake = 1;
                     return GetNumberOfCustomers();
             }
-            //Console.WriteLine($"{totalCustomersToMake}");
         }
 
 

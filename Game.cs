@@ -46,13 +46,7 @@ namespace LemonadeStand_3DayStarter
         //member methods
         private void SellLemonade(Random rnd)
         {
-            ShowForecast();
-            player.CreatePitcher();
-            int buyabilityFactor;
-            buyabilityFactor = GetBuyabilityForCustomers(rnd);
-            double chanceOfPurchase;
-            chanceOfPurchase = GetCustomerChanceOfPurchase(buyabilityFactor);
-            //This begins the loop that goes through the customers  
+            double chanceOfPurchase=InitializeGame(rnd);
             foreach (Customer customer in days[currentDay].customers)
             {
                 int buyrandom;
@@ -72,8 +66,7 @@ namespace LemonadeStand_3DayStarter
                     }
                     else
                     {
-                        Console.WriteLine();
-                        Console.WriteLine("        You do not have inventory to make sale!");
+                        Console.WriteLine("\n        You do not have inventory to make sale!");
                         break;
                     }
                 }
@@ -84,6 +77,16 @@ namespace LemonadeStand_3DayStarter
             }
             currentDay++;
             goSellLemonade = false;
+        }
+        public double InitializeGame(Random rnd)
+        {
+            ShowForecast();
+            player.CreatePitcher();
+            int buyabilityFactor;
+            buyabilityFactor = GetBuyabilityForCustomers(rnd);
+            double chanceOfPurchase;
+            chanceOfPurchase = GetCustomerChanceOfPurchase(buyabilityFactor);
+            return chanceOfPurchase;
         }
         private void CheckPitcherLevel()
         {
