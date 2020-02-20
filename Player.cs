@@ -38,14 +38,11 @@ namespace LemonadeStand_3DayStarter
                 inventory.lemons.RemoveRange(0, recipeLemons);
                 inventory.sugarCubes.RemoveRange(0, recipeSugar);
                 pitcher.cupsLeftInPitcher = 11;
-                //player.pitcher.cupsLeftInPitcher
-                //player.inventory.iceCubes.RemoveRange(0, pitcherIce);
             }
             else
             {
-                Console.WriteLine("You do not have enough supplies to create a pitcher");
-                Console.WriteLine("SOLD OUT!");
-                //Supplies are out end of day
+                Console.WriteLine("       You do not have enough supplies to create a pitcher");
+                Console.WriteLine("       SOLD OUT!");
             }
         }
 
@@ -86,7 +83,6 @@ namespace LemonadeStand_3DayStarter
             {
                 Console.WriteLine("That is not a valid choice!");
                 EditRecipe(player);
-                //Need to ask about not putting return in front of this recursion.
             }
         }
     }

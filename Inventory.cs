@@ -59,13 +59,5 @@ namespace LemonadeStand_3DayStarter
                 cups.Add(cup);
             }
         }
-        //public void RemoveCupsFromInventory(int numberOfCups)
-        //{
-        //    for (int i = 0; i < numberOfCups; i++)
-        //    {
-        //        Cup cup = new Cup();
-        //        cups.Add(cup);
-        //    }
-        //}
     }
 }

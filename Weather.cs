@@ -27,7 +27,6 @@ namespace LemonadeStand_3DayStarter
         
 
         //member methods
-
         public void GenerateWeatherCondition()
         {
             int result;
@@ -59,7 +58,6 @@ namespace LemonadeStand_3DayStarter
                     Console.WriteLine("Not a valid weather condition");
                     break;
             }
-
         }
         public void GenerateRandomTemperature()
         {
@@ -96,7 +94,5 @@ namespace LemonadeStand_3DayStarter
                     break;
             }
         }
-
-
     }
 }

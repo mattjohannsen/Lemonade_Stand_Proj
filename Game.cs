@@ -15,7 +15,6 @@ namespace LemonadeStand_3DayStarter
         private Store store;
         Random rnd;
         bool goSellLemonade = false;
-        bool continueGame = true;
 
         //constructor
         public Game()
@@ -75,99 +74,29 @@ namespace LemonadeStand_3DayStarter
                     {
                         Console.WriteLine();
                         Console.WriteLine("        You do not have inventory to make sale!");
+                        break;
                     }
                 }
                 else
                 {
                     Console.WriteLine($"       {customer.name}: no sale");
                 }
-              
             }
-            //The Loop going through the customers is finished and so is the day at Lemonade stand, so below I reassign the variables for the next day.
             currentDay++;
             goSellLemonade = false;
         }
-        //OLD Sell Lemonade Method
-        //MakeLemonadeSale();
-
-        //    //This begins the loop that goes through the customers  
-        //    foreach (Customer customer in days[currentDay].customers)
-        //    {
-        //    int buyrandom;
-        //int ourLemons = player.inventory.lemons.Count;
-        //int pitcherLemons = player.recipe.amountOfLemons;
-        //int ourSugar = player.inventory.sugarCubes.Count;
-        //int pitcherSugar = player.recipe.amountOfSugarCubes;
-        //int ourIce = player.inventory.iceCubes.Count;
-        //int cupIce = player.recipe.amountOfIceCubes;
-        //int ourCups = player.inventory.cups.Count;
-        //int pitcherCups = player.pitcher.cupsLeftInPitcher;
-        //buyrandom = rnd.Next(1, 100);
-        //        if(buyrandom<= chanceOfPurchase) //This customer is on track to make a purchase
-        //        {
-        //            if (pitcherCups >= 1) //We have lemonade left in the pitcher to sell, so SELL IT!
-        //                {
-        //                    if (cupIce<= ourIce) //BUT first check to see if we have ice
-        //                        {
-        //                            if(ourCups >= 0) //We also need to check to see if we enough cups in our inventory
-        //                                {
-        //                                    Console.WriteLine($"       SALE! {customer.name}: bought lemonade");
-        //                                    player.inventory.cups.RemoveRange(0, 1);
-        //                                    player.inventory.iceCubes.RemoveRange(0, player.recipe.amountOfIceCubes);
-        //                                    player.pitcher.cupsLeftInPitcher--;
-        //                                    player.wallet.Money += player.recipe.pricePerCup;
-        //                                }
-        //                            else
-        //                                {
-        //                                    Console.WriteLine("You are out of cups! We are sold out for the day!");
-        //                                }
-        //                        }
-        //                    else //We do not have enough ice in our inventory
-        //                        {
-        //                            Console.WriteLine("You are out of ice! We are sold out for the day!");
-        //                        }
-
-        //                }
-        //            else //We do not have lemonade left in the pitcher to sell
-        //                {
-        //                    //If we have the available inventory, no problem we will try make another pitcher.
-        //                    player.CreatePitcher();
-        //        }
-        //        }
-        //        else //This customer did not want to make a purchase
-        //        {
-        //            Console.WriteLine($"       {customer.name}: no sale");
-        //        }
-        //    }
-        //    //The Loop going through the customers is finished and so is the day at Lemonade stand, so below I reassign the variables for the next day.
-        //    currentDay++;
-        //    goSellLemonade = false;
-        //}
-        //private void MakeLemonadeSale()
-        //{
-
-        //}
         private void CheckPitcherLevel()
         {
-            if (player.pitcher.cupsLeftInPitcher == 0) //We have need lemonade in pitcher, let's go make it!
+            if (player.pitcher.cupsLeftInPitcher == 0) //We need lemonade in the pitcher, let's go make it!
             {
                 player.CreatePitcher();
             }
         }
         private bool CheckInventoryLevels()
         {
-            //int ourLemons = player.inventory.lemons.Count;
-            //int pitcherLemons = player.recipe.amountOfLemons;
-            //int ourSugar = player.inventory.sugarCubes.Count;
-            //int pitcherSugar = player.recipe.amountOfSugarCubes;
-            //int ourIce = player.inventory.iceCubes.Count;
-            //int cupIce = player.recipe.amountOfIceCubes;
-            //int ourCups = player.inventory.cups.Count;
-            //int pitcherCups = player.pitcher.cupsLeftInPitcher;
             int ourIce = player.inventory.iceCubes.Count;
             int cupIce = player.recipe.amountOfIceCubes;
             int ourCups = player.inventory.cups.Count;
-            int pitcherCups = player.pitcher.cupsLeftInPitcher;
             bool doWeHaveTheInventory;
             doWeHaveTheInventory = false;
             if (ourCups>=1)
@@ -209,27 +138,21 @@ namespace LemonadeStand_3DayStarter
                 case "sunny":
                     result = rnd.Next(90, 100);
                     return buyabilityFactor = ((result + int.Parse(days[currentDay].weather.temperature)) / 2);
-                    break;
                 case "hazy":
                     result = rnd.Next(80, 90);
                     return buyabilityFactor = ((result + int.Parse(days[currentDay].weather.temperature)) / 2);
-                    break;
                 case "overcast":
                     result = rnd.Next(70, 80);
                     return buyabilityFactor = ((result + int.Parse(days[currentDay].weather.temperature)) / 2);
-                    break;
                 case "cloudy":
                     result = rnd.Next(60, 70);
                     return buyabilityFactor = ((result + int.Parse(days[currentDay].weather.temperature)) / 2);
-                    break;
                 case "rainy":
                     result = rnd.Next(50, 80);
                     return buyabilityFactor = ((result + int.Parse(days[currentDay].weather.temperature)) / 2);
-                    break;
                 default:
                     Console.WriteLine("Not a valid weather condition");
                     return buyabilityFactor = 1;
-                    break;
             }
         }
         private void ShowPlayerStandStatus()
@@ -271,7 +194,6 @@ namespace LemonadeStand_3DayStarter
                     Console.WriteLine("      That is not a valid selection. Please try again.");
                     return SelectGameOptions();
             }
-
         }
         private void ShowForecast()
         {
@@ -302,7 +224,6 @@ namespace LemonadeStand_3DayStarter
             Console.WriteLine();
             Console.WriteLine($"       {player.name} has: ${player.wallet.Money}");
         }
-        
 
         private string SetNumberOfDays()
         {
@@ -318,7 +239,6 @@ namespace LemonadeStand_3DayStarter
                     Console.WriteLine("       That is not a valid selection. Please try again.");
                     return SetNumberOfDays();
             }
-
         }
 
         private void CreateTheDays(int daysToCreate)

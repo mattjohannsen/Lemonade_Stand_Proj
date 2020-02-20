@@ -22,60 +22,70 @@ namespace LemonadeStand_3DayStarter
             amountOfSugarCubes = 1;
             amountOfIceCubes = 1;
             pricePerCup = .25;
-            //recipeLikeability = CalculateLikeability(player);
         }
 
         //member methods
         public double CalculateLikeability(Player player)
         {
-            double likeabilityFactor = 1;
-            double priceLikeability = 1;
-            double lemonLikeability = 1;
-            double sugarLikeability = 1;
-            double iceLikeability = 1;
-            //Price Likeability
-            if (player.recipe.pricePerCup<=.8)
-            {
-                priceLikeability = (1 - player.recipe.pricePerCup);
-                priceLikeability = (priceLikeability * .25);
-            }
-            else
-            {
-                priceLikeability = .05;
-            }
-            //Lemon Likeability
-            if ((player.recipe.amountOfLemons >= 2) && (player.recipe.amountOfLemons <= 7))
-            {
-                lemonLikeability = (player.recipe.amountOfLemons / 7);
-                lemonLikeability = (lemonLikeability * .25);
-            }
-            else
-            {
-                lemonLikeability = .05;
-            }
-            //Sugar Likeability
-            if ((player.recipe.amountOfSugarCubes >= 3) && (player.recipe.amountOfSugarCubes <= 10))
-            {
-                sugarLikeability = (player.recipe.amountOfSugarCubes / 10);
-                sugarLikeability = (sugarLikeability * .25);
-            }
-            else
-            {
-                sugarLikeability = .05;
-            }
-            //Ice Likeability
+            double likeabilityFactor;
+            double priceLikeability = CalculatePriceLikeability(player);
+            double lemonLikeability = CalculateLemonLikeability(player);
+            double sugarLikeability = CalculateSugarLikeability(player);
+            double iceLikeability = CalculateIceLikeability(player);
+            return likeabilityFactor = (priceLikeability + lemonLikeability + sugarLikeability + iceLikeability);
+        }
+        private double CalculateIceLikeability(Player player)
+        {
+            double iceLikeability;
             if ((player.recipe.amountOfIceCubes >= 3) && (player.recipe.amountOfIceCubes <= 9))
             {
                 iceLikeability = (player.recipe.amountOfIceCubes / 9);
-                iceLikeability = (iceLikeability * .25);
+                return iceLikeability = (iceLikeability * .25);
             }
             else
             {
-                iceLikeability = .05;
+                return iceLikeability = .05;
             }
-            return likeabilityFactor = (priceLikeability + lemonLikeability + sugarLikeability + iceLikeability);
         }
-
+        private double CalculateSugarLikeability(Player player)
+        {
+            double sugarLikeability;
+            if ((player.recipe.amountOfSugarCubes >= 3) && (player.recipe.amountOfSugarCubes <= 10))
+            {
+                sugarLikeability = (player.recipe.amountOfSugarCubes / 10);
+                return sugarLikeability = (sugarLikeability * .25);
+            }
+            else
+            {
+                return sugarLikeability = .05;
+            }
+        }
+        private double CalculateLemonLikeability(Player player)
+        {
+            double lemonLikeability;
+            if ((player.recipe.amountOfLemons >= 2) && (player.recipe.amountOfLemons <= 7))
+            {
+                lemonLikeability = (player.recipe.amountOfLemons / 7);
+                return lemonLikeability = (lemonLikeability * .25);
+            }
+            else
+            {
+                return lemonLikeability = .05;
+            }
+        }
+        private double CalculatePriceLikeability(Player player)
+        {
+            double priceLikeability;
+            if (player.recipe.pricePerCup <= .8)
+            {
+                priceLikeability = (1 - player.recipe.pricePerCup);
+                return priceLikeability = (priceLikeability * .25);
+            }
+            else
+            {
+                return priceLikeability = .05;
+            }
+        }
         public void EditPricePerCup(Player player)
         {
             Console.WriteLine();
@@ -120,7 +130,5 @@ namespace LemonadeStand_3DayStarter
             player.recipe.amountOfIceCubes = int.Parse(newIcePerCup);
             player.recipe.recipeLikeability = CalculateLikeability(player);
         }
-
-
     }
 }

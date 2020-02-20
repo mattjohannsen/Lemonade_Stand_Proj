@@ -21,7 +21,6 @@ namespace LemonadeStand_3DayStarter
             int result;
             result = rnd.Next(0, names.Count);
             name = names[result];
-            //Console.WriteLine(name);
         }
 
         //member methods

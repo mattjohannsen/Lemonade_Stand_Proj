@@ -19,7 +19,6 @@ namespace LemonadeStand_3DayStarter
             this.rnd = rnd;
             weather = new Weather(rnd);
             customers = new List<Customer>();
-            //This is where I want to call the method to generate the correct number of customers
             GenerateCustomersForDay(GetNumberOfCustomers());
         }
 
@@ -35,7 +34,6 @@ namespace LemonadeStand_3DayStarter
         
         public int GetNumberOfCustomers()
         {
-            //Console.WriteLine($"Temperature: {weather.temperature} Condition: {weather.condition}");
             int result;
             int totalCustomersToMake;
             switch (weather.condition)
@@ -64,7 +62,7 @@ namespace LemonadeStand_3DayStarter
                     Console.WriteLine("Not a valid weather condition");
                     //I need help here to make a proper default case
                     totalCustomersToMake = 1;
-                    return totalCustomersToMake;
+                    return GetNumberOfCustomers();
             }
             //Console.WriteLine($"{totalCustomersToMake}");
         }
